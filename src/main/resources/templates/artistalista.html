@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Artistas Vagalume</title>
+</head>
+<body>
+	<h1>Lista de Artista</h1>
+
+	<table>
+		<thead>
+			<td>ID</td>
+			<td>Nome</td>
+			</th>
+		</thead>
+		<tr th:each="artista: ${lista}">
+			<td th:text="${artista.id}">ID</td>
+			<td th:text="${artista.name}">Nome</td>
+			<td><a th:href="@{'/update/'+ ${artista.id}}">Alterar</a></td>
+			<td><a th:href="@{'/delete/' + ${artista.id}}">Excluir</a></td>
+		</tr>
+	</table>
+
+	<a th:href="@{/form}">Cadastrar novo Artista</a>
+
+</body>
+</html>
