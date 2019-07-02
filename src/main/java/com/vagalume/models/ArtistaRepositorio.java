@@ -14,7 +14,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface ArtistaRepositorio extends CrudRepository<Artista, Integer> {
 	public List<Artista> findAll();
 	
-	public Artista findByNome(String nome);
+	public Artista findByName(String name);
 	
 	
 }
