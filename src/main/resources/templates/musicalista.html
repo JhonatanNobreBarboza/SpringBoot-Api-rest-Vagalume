@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<h1>Veja suas músicas salvas!</h1>
+	
+	<table class="tabela">
+		<tr>
+			<th>Música</th>
+			<th>Cantor</th>
+		</tr>
+		
+		<tr th:each="musica : ${musicas}">
+			<td th:text="${musica.name}"></td>
+			<td th:text="${musica.cantor}"></td>
+			<td> <a th:href="@{'/delete/' + ${musica.id}}">DELETAR</a> </td>
+		</tr>
+	</table>
+
+	<a th:href="@{'/'}">INÍCIO</a>	
+	
+</body>
+</html>

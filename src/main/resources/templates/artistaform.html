@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Artistas Vagalume</title>
+	<meta charset="UTF-8">
+	<title>Artistas Vagalume</title>
+	<link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-<h1>Artistas</h1>
 
-<form th:action="@{/create}" th:object="${artista}" method="post">
-	Nome: <input type="text" th:field="*{name}"><br/>
+	<form th:action="@{/buscar}" th:object="${artista}" method="post">
 	
-	<input type="hidden" th:field="*{id}">
-	
-	<input type="submit" value="Salvar">
-</form>
+		<h1>Procurar Artista</h1>
+		
+		<label>Entre com o nome de uma Banda ou Artista Musical:</label></br> 
+		<input type="text" th:field="${artista.cantor}"><br/>
+		
+		<label>Entre com o nome da música:</label></br> 
+		<input type="text" th:field="${artista.musica}"><br/>
+		
+		<input type="submit" th:value="'Pesquisar'"/>
+	</form>
 
 </body>
 </html>

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -16,14 +17,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class musica {
-	
+public class Musica {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+	private String cantor;
 	private String name;
 	private String url;
+	@Lob
 	private String text;
 	/**
 	 * @return the id
@@ -73,5 +74,10 @@ public class musica {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
+	public String getCantor() {
+		return cantor;
+	}
+	public void setCantor(String cantor) {
+		this.cantor = cantor;
+	}
 }
