@@ -12,11 +12,13 @@
 		<tr>
 			<th>Música</th>
 			<th>Cantor</th>
+			<th>Link Musica</th>
 		</tr>
 		
 		<tr th:each="musica : ${musicas}">
 			<td th:text="${musica.name}"></td>
 			<td th:text="${musica.cantor}"></td>
+			<td> <a th:href="@{${musica.url}}">Link da Musica</a> </td>
 			<td> <a th:href="@{'/delete/' + ${musica.id}}">DELETAR</a> </td>
 		</tr>
 	</table>
