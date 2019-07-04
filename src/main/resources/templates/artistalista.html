@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Posts</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Posts</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet"></link>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<strong>Resultado da Pesquisa</strong>
+			<strong class="">Resultado da Pesquisa</strong>
 		</div>
-		<div class="card container text-center col-md-12">
-            <div class="card-header">
-                <h3 th:text="${cantor.name}"></h3>
-            </div>
-            <div class="card-body">
-                <div>
-                    <h3 th:text="${musica.name}"></h3>
-                </div>
-              <p class="card-text" th:utext="${musica.text}"></p>
-              
-            </div>
-          </div>
+		<div class="col-sm-12 text-right">
+			<br />
+			<input type="button" onclick="cont();"
+				class="btn btn-success text-right" value="Imprimir Música">
+		</div>
+		<div class="card container text-center col-md-12 conteudo" id="print">
+
+			<div class="card-header">
+				<h3 th:text="${cantor.name}"></h3>
+			</div>
+			<div class="card-body">
+				<div>
+					<h3 th:text="${musica.name}"></h3>
+				</div>
+				<p class="card-text" th:utext="${musica.text}"></p>
+
+			</div>
+		</div>
 		<div class="panel-footer container text-center col-md-12">
-		      <a class="btn btn-success " th:href="@{/salvarMusica}">Salvar Música</a>
-		      <a class="btn btn-primary" th:href="${cantor.url}">Acesse o link do artista no site Vagalume aqui</a>
-	          <a class="btn btn-primary " th:href="@{/}">Buscar outro Cantor</a>
-	    </div>
+			<a class="btn btn-success " th:href="@{/salvarMusica}">Salvar
+				Música</a> <a class="btn btn-primary" th:href="${cantor.url}">Acesse
+				o link do artista no site Vagalume aqui</a> <a class="btn btn-primary "
+				th:href="@{/}">Buscar outro Cantor</a>
+		</div>
+		<script>
+			function cont() {
+				var conteudo = document.getElementById('print').innerHTML;
+				tela_impressao = window.open('about:blank');
+				tela_impressao.document.write(conteudo);
+				tela_impressao.window.print();
+				tela_impressao.window.close();
+			}
+		</script>
 	</div>
 </body>
 </html>
