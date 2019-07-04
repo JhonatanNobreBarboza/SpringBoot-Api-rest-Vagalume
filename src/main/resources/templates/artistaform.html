@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>Artistas Vagalume</title>
-	<link rel="stylesheet" href="/css/style.css" />
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Artistas | Musicas</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	<form th:action="@{/buscar}" th:object="${artista}" method="post">
-	
-		<h1>Procurar Artista</h1>
-		
-		<label>Entre com o nome de uma Banda ou Artista Musical:</label></br> 
-		<input type="text" th:field="${artista.cantor}"><br/>
-		
-		<label>Entre com o nome da música:</label></br> 
-		<input type="text" th:field="${artista.musica}"><br/>
-		
-		<input type="submit" th:value="'Pesquisar'"/>
-	</form>
-
+	<div class="panel panel-default container">
+		<div class="panel-heading form-group text-center">
+			<strong>Pesquisar por um Cantor / Música</strong>
+		</div>
+		<div class="container span7 text-center col-md-12 col-md-offset-4">
+			<form class="form-horizontal" th:object="${artista}" th:action="@{/buscar}" method="POST" style="margin: 10px">
+				<div class="form-group">
+ 					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>
+						</div> 					
+						<div class="form-group row">                                                          
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('cantor')}? 'has-error'">
+							    <label>Entre com o nome de uma Banda ou Artista Musical</label>
+							    <input type="text" class="form-control input-sm" th:field="*{cantor}" autofocus="autofocus" placeholder="Informe o autor" maxlength="50"/>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('musica')}? 'has-error'">
+								<label>Entre com o nome da música</label> 
+								<input type="text" class="form-control input-sm" th:field="*{musica}" maxlength="150" placeholder="Informe o título"/>
+							</div>
+						</div>
+										
+					</fieldset>
+				</div>
+				<div class="form-group col-md-4 col-md-offset-4">
+					<button type="submit" class="btn btn-sm btn-primary">Pesquisar Música</button>
+					<a th:href="@{/artistaform}" class="btn btn-sm btn-default">Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>
