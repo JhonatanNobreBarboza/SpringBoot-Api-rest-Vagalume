@@ -3,6 +3,7 @@
  */
 package com.vagalume.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 /**
  * @author jh_nb
@@ -24,7 +26,9 @@ public class Musica {
 	private String cantor;
 	private String name;
 	private String url;
-	@Lob
+
+
+	@Column(columnDefinition="TEXT")
 	private String text;
 	/**
 	 * @return the id

@@ -1,0 +1,19 @@
+{"properties": [
+  {
+    "name": "spring.database.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.database.driverClassName'"
+  },
+  {
+    "name": "hibernate.schema_update.unique_constraint_strategy",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.schema_update.unique_constraint_strategy'"
+  }
+]} "description": "A description for 'spring.database.driverClassName'"
+  },
+  {
+    "name": "hibernate.schema_update.unique_constraint_strategy",
+    "type": "java.lang.String",
+    "description": "A description for 'hibernate.schema_update.unique_constraint_strategy'"
+  }
+]}
