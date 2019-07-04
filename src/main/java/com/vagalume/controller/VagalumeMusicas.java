@@ -80,6 +80,11 @@ public class VagalumeMusicas {
 		return "musicalista";		
 	}
 	
+	@GetMapping("/musicasRestApi")
+	public String ListarMusicasApi() {
+		return "musicasRestApi";		
+	}
+	
 	
 	@GetMapping("/delete/{id}")
 	public String excluir(@PathVariable ("id") Integer id) {
