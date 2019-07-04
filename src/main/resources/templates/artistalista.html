@@ -1,20 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>Artistas Vagalume</title>
-	<link rel="stylesheet" href="/css/style.css" />
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Posts</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h2 th:text="${'Cantor: '} + ${cantor.name}"></h2>
-	
-	<a th:href="${cantor.url}">Acesse o link do artista no site Vagalume aqui</a><br>
-	<a th:href="@{/}">Buscar outro Cantor</a><br>
-	<a th:href="@{/salvarMusica}">Salvar Música</a>
-	
-	<div>
-		<h3 th:text="${'Música: '} + ${musica.name}"></h3>
-		<div th:utext="${musica.text}"></div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Resultado da Pesquisa</strong>
+		</div>
+		<div class="card container text-center col-md-12">
+            <div class="card-header">
+                <h3 th:text="${cantor.name}"></h3>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h3 th:text="${musica.name}"></h3>
+                </div>
+              <p class="card-text" th:utext="${musica.text}"></p>
+              
+            </div>
+          </div>
+		<div class="panel-footer container text-center col-md-12">
+		      <a class="btn btn-success " th:href="@{/salvarMusica}">Salvar Música</a>
+		      <a class="btn btn-primary" th:href="${cantor.url}">Acesse o link do artista no site Vagalume aqui</a>
+	          <a class="btn btn-primary " th:href="@{/}">Buscar outro Cantor</a>
+	    </div>
 	</div>
 </body>
 </html>

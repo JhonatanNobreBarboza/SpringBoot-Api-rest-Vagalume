@@ -28,7 +28,7 @@
 						<tr th:each="musica : ${musicas}">
 							<td th:text="${musica.name}"></td>
 							<td th:text="${musica.cantor}"></td>
-							<td><a th:href="@{${musica.url}}" target="_blank">Ver música</a></td>
+							<td><a th:href="@{${musica.url}}" target="_blank">Ver música no site do Vagalume</a></td>
 							<td>
 								<div class="btn-group pull-right">
 							   		<a class="delete btn btn-sm btn-danger" th:href="@{'/delete/' + ${musica.id}}">Excluir Musica</a>
