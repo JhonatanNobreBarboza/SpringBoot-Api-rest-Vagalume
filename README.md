@@ -10,6 +10,8 @@ trabalho como requisito da disciplina de Sistemas Distribuídos utilizando Java 
 * Utlização do thymeleaf
 * Banco de Dados em postgresql
 * Utilização do Maven
+* Consumo de dados do Site do Vagalume
+* Utilização do Spring Boot
 
 
 ### Tela Principal da Aplicação onde possui dois inputs para pesquisar Um cantor e uma Música de sua Preferência
