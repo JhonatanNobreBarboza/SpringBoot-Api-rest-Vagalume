@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+	<meta name="viewport" content= "width=device-width"> 
 	<title>Artistas | Musicas</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -13,7 +13,7 @@
 		<div class="panel-heading form-group row-fluid">
 			<strong>Pesquisar por um Cantor / Música</strong>
 		</div>
-		<div class="text-center col-md-12 col-md-offset-4">
+		<div class="text-center col-md-12 row col-md-offset-4">
 			<form class="form-horizontal" th:object="${artista}" th:action="@{/buscar}" method="POST" style="margin: 10px">
 				<div class="form-group">
  					<fieldset>
@@ -48,7 +48,7 @@
 			</form>
 		</div>
 		<div class="text-center">
-		<img src="../img/logoVagalume2.png" class=""  alt="Imagem responsiva">
+		<img src="../img/logoVagalume2.png" class="rounded "  alt="Imagem logo">
 		</div>
 	<p class="text-right">Copyright © Jhonatan Nobre 2019</p>
 	</div>
